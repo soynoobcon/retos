@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Virtual</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script defer src="./script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <h1>La Fe en Dios</h1>
+            <div class="header-icons">
+                <button onclick="window.location.href='#'" class="icon-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C8.01 14 7 12.99 7 11.5S8.01 9 9.5 9s2.5 1.01 2.5 2.5S10.99 14 9.5 14z"/>
+                    </svg>
+                </button>
+                <button onclick="window.location.href='#'" class="icon-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </button>
+                <button onclick="window.location.href='cart.html'" class="icon-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1m-9-1a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1M18 6H4.27l2.55 6H15c.33 0 .62-.16.8-.4l3-4c.13-.17.2-.38.2-.6a1 1 0 0 0-1-1m-3 7H6.87l-.77 1.56L6 15a1 1 0 0 0 1 1h11v1H7a2 2 0 0 1-2-2a2 2 0 0 1 .25-.97l.72-1.47L2.34 4H1V3h2l.85 2H18a2 2 0 0 1 2 2c0 .5-.17.92-.45 1.26l-2.91 3.89c-.36.51-.96.85-1.64.85"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Productos</a>
+                    <div class="dropdown-content">
+                        <a href="carneRes.html">Carne de Res</a>
+                        <a href="cerdo.html">Cerdo</a>
+                        <a href="pechuga.html">Pollo/Gallina</a>
+                        <a href="varios.html">Varios</a>                        
+                    </div>
+                </li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Productos de la tienda -->
+        <section class="products">
+            <div class="product">
+                <h2>Pechuga de Pollo</h2>
+                <p>Precio: $20</p>
+                <button onclick="addTocart('Pechuga de Pollo', 20)">Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <h2>Alitas</h2>
+                <p>Precio: $10</p>
+                <button onclick="addTocart('Alitas', 10)">Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <h2>Perniles</h2>
+                <p>Precio: $12</p>
+                <button onclick="addTocart('Perniles', 12)">Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <h2>Contramuslos</h2>
+                <p>Precio: $12</p>
+                <button onclick="addTocart('Contramuslos', 12)">Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <h2>Pernil</h2>
+                <p>Precio: $15</p>
+                <button onclick="addTocart('Pernil', 15)">Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <h2>Mollejas</h2>
+                <p>Precio: $4</p>
+                <button onclick="addTocart('Mollejas', 4)">Agregar al Carrito</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Carrito flotante -->
+    <div id="cart-container">
+        <h3>Carrito</h3>
+        <div id="cart-content"></div>
+        <h4>Total: $<span id="cart-total">0</span></h4>
+        <button id="cart-button" onclick="window.location.href='cart.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="margin-right: 5px;">
+                <path fill="currentColor" d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1m-9-1a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1M18 6H4.27l2.55 6H15c.33 0 .62-.16.8-.4l3-4c.13-.17.2-.38.2-.6a1 1 0 0 0-1-1m-3 7H6.87l-.77 1.56L6 15a1 1 0 0 0 1 1h11v1H7a2 2 0 0 1-2-2a2 2 0 0 1 .25-.97l.72-1.47L2.34 4H1V3h2l.85 2H18a2 2 0 0 1 2 2c0 .5-.17.92-.45 1.26l-2.91 3.89c-.36.51-.96.85-1.64.85"/>
+            </svg>Ver Carrito</button>
+    </div>
+
+    <footer>
+        <p>Visitas: <span id="visit-count"></span></p>
+        <p>&copy; 2024 Tienda Virtual La fe en Dios</p>       
+    </footer>
+</body>
+</html>
